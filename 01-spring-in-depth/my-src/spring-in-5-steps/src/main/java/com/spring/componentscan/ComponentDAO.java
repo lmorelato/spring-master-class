@@ -1,4 +1,4 @@
-package com.spring.outside.componentscan;
+package com.spring.componentscan;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

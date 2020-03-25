@@ -7,12 +7,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringScopeApplication {
+public class ScopeApplication {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(SpringScopeApplication.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(ScopeApplication.class);
 
     public static void main(String[] args) {
-        var applicationContext = SpringApplication.run(SpringScopeApplication.class, args);
+        var applicationContext = SpringApplication.run(ScopeApplication.class, args);
         var personDao = applicationContext.getBean(PersonDAO.class);
         var personDao2 = applicationContext.getBean(PersonDAO.class);
 

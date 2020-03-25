@@ -1,11 +1,15 @@
-package com.in28minutes.spring.basics.springin5steps;
+package com.spring.course.basic;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 @Component
+@Slf4j
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class BinarySearchImpl implements BinarySearch {
 
@@ -14,6 +18,11 @@ public class BinarySearchImpl implements BinarySearch {
     @Autowired
     public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
         this.sortAlgorithm = sortAlgorithm;
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        log.info("@PostConstruct");
     }
 
     public int binarySearch(int[] numbers, int numberToSearchFor) {

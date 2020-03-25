@@ -1,25 +1,23 @@
 package com.spring.course;
 
-import com.spring.course.scope.PersonDAO;
+import com.spring.componentscan.ComponentDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-public class SpringComponentScanApplication {
+@ComponentScan("com.spring.componentscan")
+public class ComponentScanApplication {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(SpringComponentScanApplication.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(ComponentScanApplication.class);
 
     public static void main(String[] args) {
-        var applicationContext = SpringApplication.run(SpringComponentScanApplication.class, args);
-        var personDao = applicationContext.getBean(PersonDAO.class);
-        var personDao2 = applicationContext.getBean(PersonDAO.class);
+        var applicationContext = SpringApplication.run(ComponentScanApplication.class, args);
+        var componentDao = applicationContext.getBean(ComponentDAO.class);
 
-        LOGGER.info("\tpersonDao: {}", personDao);
-        LOGGER.info("\t\t{}", personDao.getJdbcConnection());
-
-        LOGGER.info("\tpersonDao2: {}", personDao2);
-        LOGGER.info("\t\t{}", personDao2.getJdbcConnection());
+        LOGGER.info("\t{}", componentDao);
+        LOGGER.info("\t\t{}", componentDao.getComponentJdbcConnection());
     }
 }
