@@ -15,6 +15,7 @@ public class BasicApplication {
 
         var binarySearch = applicationContext.getBean(BinarySearchImpl.class);
         int result = binarySearch.binarySearch(new int[]{12, 4, 6}, 3);
+
         log.info("{}", result);
     }
 }

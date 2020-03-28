@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component
 @Slf4j
@@ -23,6 +24,11 @@ public class BinarySearchImpl implements BinarySearch {
     @PostConstruct
     public void postConstruct() {
         log.info("@PostConstruct");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        log.info("@PreDestroy");
     }
 
     public int binarySearch(int[] numbers, int numberToSearchFor) {
